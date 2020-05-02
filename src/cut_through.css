@@ -1,0 +1,29 @@
+ table { border-collapse: collapse; empty-cells: show; }
+
+td { position: relative; }
+
+ tr.strikeout td:before {
+  content: " ";
+  position: absolute;
+  top: 38%;
+  left: 0;
+  border-bottom: 3px solid #055;
+  width: 100%;
+}
+
+ tr.strikeout td:after {
+  /* content: "\00B7"; */
+   font-size: 20px; 
+}
+
+.strike {
+    position: relative;
+  }
+.strike:before {
+    content: " ";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      border-bottom: 3px solid #055;
+      width: 100%;
+  }
