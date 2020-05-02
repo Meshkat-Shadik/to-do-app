@@ -1,68 +1,83 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Extra libraries that I have to install for this mini project.
 
-## Available Scripts
+1. react-starp (npm install --save reactstrap react react-dom)
+2. prop-types  (npm install --save prop-types)
+3. shortid (npm install shortid)
 
-In the project directory, you can run:
 
-### `yarn start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Directories:  
+ **controllers** 
+     - bulk-controller.jsx
+     - filterController.jsx
+     - index.jsx
+     - searchPanel.jsx
+     - view-controller.jsx
+    
+  **create-todo-form**
+    - index.jsx
+  
+  **listviews**
+    - index.jsx
+    
+  **tableview**
+    - index.jsx
+    
+  **todos**
+    - index.jsx
+    
+ 
+-------------------------------------------------  Discussion  -------------------------------------------------------------
+#### ***todos -> index.jsx***
+this file is the motherboard of this whole mini-project. Basically it is a statefull class based component. A state contains a **todo** array which contains unique object. Those object are the property of a task, as the app based on state storage. The other properties of the states are ** isOpenToDoForm** , **searchTerm**, **view**, **filter** and **active**
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+    
+    state = {
+    todos: [
+      {
+        id: "dasdas",           //for complete action button 
+        text: "habijabi",       //task's heading
+        description: "wtqtq",   //task's description
+        time: new Date(),       //current date
+        isComplete: false,      //button handle
+        isSelect: false,        //checkbox handle
+      },
+      {
+        id: "fafafas",
+        text: "new task",
+        description: "wtqtq",
+        time: new Date(),
+        isComplete: false,
+        isSelect: false,
+      },
+    ],
+    isOpenToDoForm: false,      //modal handler 
+    searchTerm: "",             //search box's text
+    view: "list",               //initial view type
+    filter:'all',               //initial filter type
+    active:''                   //active button for left side buttons
+  }
 
-### `yarn test`
+There are so many  ***(14)***  functions for handling all actions.
+  
+  -  ##### toggleSelect
+    toggleSelect = (todoId) => {
+    const todos = [...this.state.todos];        //immutable way
+    const todo = todos.find((t) => t.id == todoId);     
+    todo.isSelect = !todo.isSelect;
+    this.setState({ todos });
+      };
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+  -  ##### toggleComplete
+  -  ##### toggleForm
+  -  ##### handleSearch
+  -  ##### createToDo
+  -  ##### handleFilter
+  -  ##### handleActive
+  -  ##### changeView
+  -  ##### clearSelected
+  -  ##### clearCompleted
+  -  ##### reset
+  -  ##### performSearch
+  -  ##### performFilter
+  -  ##### getView
