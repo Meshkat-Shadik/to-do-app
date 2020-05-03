@@ -27,8 +27,8 @@ Extra libraries that I have to install for this mini project.
     - index.jsx
     
  
- ## -------------------------------------------------  ***Discussion***  -------------------------------------------------------------
-#### ***todos -> index.jsx***
+ ## ---------------------------------------------  ***Discussion***  ------------------------------------------------------
+#### ***todos -> index.jsx**
 this file is the motherboard of this whole mini-project. Basically it is a statefull class based component. A state contains a **todo** array which contains unique object. Those object are the property of a task, as the app based on state storage. The other properties of the states are, **'isOpenToDoForm'** , **'searchTerm'**, **'view'**, **'filter'** and **'active'**
 
     
